@@ -7,9 +7,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const {count} = useLoaderData();
-    console.log(count , 'count');
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState([]);
+    const { count } = useLoaderData();
+    console.log(count, 'count');
+    const numberOfPages = Math.ceil(count / 15);
+
+    const pages = [...Array(numberOfPages).keys()]
+    console.log(pages, 'pages');
+
 
     useEffect(() => {
         fetch('http://localhost:5000/products')
@@ -83,6 +88,13 @@ const Shop = () => {
                         <button className='btn-proceed'>Review Order</button>
                     </Link>
                 </Cart>
+            </div>
+            <div className=' '>
+                {
+                    pages.map(page => <Link to={`/${page + 1}`} key={page}>
+                        <button>{page + 1}</button>
+                    </Link>)
+                }
             </div>
         </div>
     );
