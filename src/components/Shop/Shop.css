@@ -31,3 +31,10 @@
     justify-content: center;
     margin-bottom: 5rem;
 }
+
+.selected {
+    background: #FF9900;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
