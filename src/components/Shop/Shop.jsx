@@ -70,10 +70,7 @@ const Shop = () => {
         addToDb(product._id)
     }
 
-    const handleClearCart = () => {
-        setCart([]);
-        deleteShoppingCart();
-    }
+   
 
     const previous = () => {
         if (currentPage > 1) {
@@ -85,6 +82,11 @@ const Shop = () => {
         if (currentPage < numberOfPages) {
             setCurrentPage(currentPage + 1);
         }
+    }
+
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
     }
 
     return (
