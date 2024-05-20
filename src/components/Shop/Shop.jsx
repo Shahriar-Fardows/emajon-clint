@@ -49,6 +49,17 @@ const Shop = () => {
         setCart(savedCart);
     }, [products])
 
+    const next = () => {
+        if (currentPage < numberOfPages) {
+            setCurrentPage(currentPage + 1);
+        }
+    }
+
+    const handleClearCart = () => {
+        setCart([]);
+        deleteShoppingCart();
+    }
+
     const handleAddToCart = (product) => {
         // cart.push(product); '
         let newCart = [];
@@ -78,16 +89,7 @@ const Shop = () => {
         }
     }
 
-    const next = () => {
-        if (currentPage < numberOfPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    }
-
-    const handleClearCart = () => {
-        setCart([]);
-        deleteShoppingCart();
-    }
+   
 
     return (
         <div className='shop-container'>
