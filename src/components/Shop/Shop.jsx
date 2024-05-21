@@ -24,10 +24,10 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?limit=${productsNumber}&page=${currentPage}`)
             .then(res => res.json())
             .then(data => setProducts(data))
-    }, []);
+    }, [ currentPage, productsNumber ]);
 
     useEffect(() => {
         const storedCart = getShoppingCart();
@@ -127,11 +127,11 @@ const Shop = () => {
                 <button onClick={next}>Next</button>
 
                 <select name="" onChange={productsNumbers} id="">
-                    <option value="5">5</option>
-                    <option value="10">10</option>
                     <option value="20">20</option>
+                    <option value="30">30</option>
                     <option value="40">40</option>
                     <option value="50">50</option>
+                    <option value="60">60</option>
                 </select>
             </div>
         </div>
